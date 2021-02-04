@@ -1,0 +1,21 @@
+[credential]
+	helper = osxkeychain
+[user]
+	name = Bertrand Ndobegang Atemkeng
+	email = B.Atemkeng@fashionette.de
+	
+mergetest = "!f(){ git merge --no-commit --no-ff \"$1\"; git merge --abort; echo \"Merge aborted\"; };f "
+
+#dryrun() {
+# git mergetest $1 
+#}
+[core]
+	excludesfile = /Users/b.atemkeng/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/b.atemkeng/.stCommitMsg
