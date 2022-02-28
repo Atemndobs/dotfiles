@@ -5,17 +5,28 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/bin:/usr/local/bin:$PATH
+ export PATH=$HOME/bin:/usr/local/bin:$HOME/.config/composer/vendor/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-# export ZSH="/Users/b.atemkeng/.oh-my-zsh"
+export ZSH="/home/atem/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+# ZSH_THEME="solarized-powerline"
+# ZSH_THEME="sorin"
+# ZSH_THEME="agnoster"
+ ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="spaceship"
+
+# DEFAULT_USER="atem"
+
+ZSH_DISABLE_COMPFIX=true
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,52 +86,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git)
-
-# source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# Add Visual Studio Code (code)
-# export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="solarized-powerline"
-# ZSH_THEME="sorin"
-# ZSH_THEME="agnoster"
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-# ZSH_THEME="spaceship"
-
 plugins=(
-	aws
-	brew
-	dotenv
 	git
 	composer
 	dotenv
@@ -129,35 +95,23 @@ plugins=(
 	laravel
 	systemadmin
 	systemd
-	osx
-	go
-	mysql-macports
-	heroku
-	homestead
+	macos
 	git-flow
-	git-auto-fetch
 	colored-man-pages
 	docker
 	docker-compose
-	node
-	npm
-	npx
-	pip
 	zsh-completions
-	zsh-autosuggestions
 	zsh-syntax-highlighting
-	history-substring-search
-  web-search
 	)
 
 
-# POWERLEVEL10K_MODE='awesome-fontconfig'
+POWERLEVEL10K_MODE='awesome-fontconfig'
 # source ~/.fonts/*.sh
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-  export MANPATH="/usr/local/man:$MANPATH"
+ export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -180,291 +134,282 @@ plugins=(
 # Example aliases
  alias zconf="code ~/.zshrc"
  alias src="source ~/.zshrc"
-# alias ohmyzsh="code ~/.oh-my-zsh"
+ alias ohmyzsh="code ~/.oh-my-zsh"
+ alias pcon="p10k configure"
+ alias dbstart="sudo /etc/init.d/mysql start"
+ alias dbstop="sudo /etc/init.d/mysql stop"
+ alias dbstat="sudo /etc/init.d/mysql status"
+ alias apstart="sudo service apache2 start"
+ alias apstop="sudo service apache2 stop"
+ alias apstat="sudo service apache2 status"
+ alias ubuntu="lsb_release -a"
+ alias dmnt="sudo mount -t drvfs D: /mnt/d"
+ alias pj="cd ~/projects && ls -all"
+ alias site="cd ~/Sites && ls -all"
+ alias wind="cd /mnt/d"
+ alias phps="phpstorm64.exe"
+ alias ga="sudo lsof  | grep apache2"
+ alias p80="sudo lsof -i -P -n | grep LISTEN"
+ alias phpstart="sudo service php7.4-fpm start"
+ alias phpstat="sudo service php7.4-fpm status"
+ alias sqlstart="sudo service mysql start"
+ alias sqlstat="sudo service mysql status"
+ alias nginxstart="sudo service nginx start"
+ alias nginxstat="sudo service nginx status"
+ alias nginxstop="sudo service nginx stop"
+ alias zip="sudo tar xvf"
+ alias enap="a2ensite"
+ alias cs="code ~/linux-commands.txt"
+ alias kps="kill -9 $(pgrep -f phpstorm)"
+ alias wpq="git clone https://github.com/mikesale/quickwp "
+ alias wpi="git clone git://github.com/php4dev/heroku-wordpress.git"
+ alias ds="docker-compose stop"
+ alias dr="docker-compose rm"
+ alias du="docker-compose up -d"
+ alias esstart="sudo systemctl start elasticsearch"
+ alias esstop="sudo systemctl stop elasticsearch"
+ alias esrestart="sudo systemctl restart elasticsearch"
+ alias php71="sudo update-alternatives --set php /usr/bin/php7.1"
+ alias php72="sudo update-alternatives --set php /usr/bin/php7.2"
+ alias php74="sudo update-alternatives --set php /usr/bin/php7.4"
+ alias php8="sudo update-alternatives --set php /usr/bin/php8.0"
 
-#  alias enap="a2ensite"
-#  alias cs="code ~/linux-commands.txt"
-#  alias kps="kill -9 $(pgrep -f phpstorm)"
-#  alias wpq="git clone https://github.com/mikesale/quickwp "
-#  alias wpi="git clone git://github.com/php4dev/heroku-wordpress.git"
-#  alias ds="docker-compose stop"
-#  alias dr="docker-compose rm"
-#  alias du="docker-compose up -d"
-#  alias exp="explorer.exe ."
-  alias paru="php artisan make:rule "
-  alias pas="php artisan serve "
-  alias pan="php artisan make:notification"
-  alias pac="php artisan make:controller "
-  alias par="php artisan make:resource $1Resource"
-  alias paj="php artisan make:job"
-  alias pmf="php artisan migrate:fresh"
-  alias pmx="php artisan migrate:$1"
-  alias clc="php artisan config:clear && php artisan config:cache && php artisan cache:clear && php artisan optimize:clear && composer dump-autoload && php artisan view:clear"
-  alias smi='php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"'
-  alias spub='php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"'
-  alias sstart='php artisan websockets:serve'
-  alias sstop='php artisan websockets:stop'
-  alias pam="php artisan make:model "
-  alias pm="php artisan migrate"
-  alias pq="php artisan queue:work"
-  alias tinker="php artisan tinker"
-#  alias pap='php artisan make:policy MessagePolicy --model="Models\\Message"'
-#  alias pubcon='php artisan vendor:publish --provider="$1\ServiceProvider"'
-#
-#  alias fake='echo "factory("App\\Models\\Design", 2)->create()"';
-#  alias ih='composer run ide-helper';
-#  alias seed='php artisan db:seed';
-#  alias db-new='php artisan migrate:fresh --seed';
-#  alias restart-redis='sudo systemctl restart redis.service';
-#  alias status-redis='sudo systemctl status redis';
-#
-  alias ide-pub='php artisan vendor:publish --provider="Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider" --tag=config'
-  alias ide-helper='composer require --dev barryvdh/laravel-ide-helper';
-#
-# # "php artisan vendor:publish --provider="\"Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider"\" --tag=config"
-#
-#  alias extphp3="sudo apt-get install php7.3-cli php7.3-curl php7.3-fpm php7.3-gd php7.3-opcache php7.4-mbstring php7.3-xmlrpc php7.3-xml php7.3-dev"
-#
-# alias extphp="sudo apt-get install php7.4-cli php7.4-curl php7.4-fpm php7.4-gd php7.4-opcache php7.4-mbstring php7.4-xmlrpc php7.4-xml php7.4-dev php7.4-intl"
+ #alias port="sudo netstat -tulpn | grep "
+ alias pt="sudo netstat -plten |grep"
+
+alias restart-redis='sudo systemctl restart redis.service';
+alias status-redis='sudo systemctl status redis';
+
+ alias ide-pub='php artisan vendor:publish --provider="Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider" --tag=config'
+ alias ide-helper='composer require --dev barryvdh/laravel-ide-helper';
+
+ alias extphp71="sudo apt-get install php7.1-cli php7.1-curl php7.1-fpm php7.1-gd php7.1-opcache php7.1-xmlrpc php7.1-xml php7.1-dev php7.1-pdo php7.1-mysqlnd php7.1-opcache php7.1-xml php7.1-gd php7.1-mysql php7.1-intl php7.1-mbstring php7.1-bcmath php7.1-json php7.1-iconv php7.1-soap"
+ alias extphp72="sudo apt-get install php7.2-cli php7.2-curl php7.2-fpm php7.2-gd php7.2-opcache php7.2-xmlrpc php7.2-xml php7.2-dev php7.2-pdo php7.2-mysqlnd php7.2-opcache php7.2-xml php7.2-gd php7.2-mysql php7.2-intl php7.2-mbstring php7.2-bcmath php7.2-json php7.2-iconv php7.2-soap php7.2-zip"
+ alias extphp74="sudo apt-get install php7.4-cli php7.4-curl php7.4-fpm php7.4-gd php7.4-opcache php7.4-xmlrpc php7.4-xml php7.4-dev php7.4-pdo php7.4-mysqlnd php7.4-opcache php7.4-xml php7.4-gd php7.4-mysql php7.4-intl php7.4-mbstring php7.4-bcmath php7.4-json php7.4-iconv php7.4-soap"
 
 
- 
-source /Users/b.atemkeng/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-fpath=(~/.zsh/zsh-completions/src $fpath)
-# export PATH="$(yarn global bin):$PATH"
+
+alias cc="php bin/magento setup:upgrade && rm -rf generated/code/ && rm -rf generated/metadata/ && php bin/magento setup:di:compile && php bin/magento ca:cl && rm -rf var/cache/ && php bin/magento setup:static-content:deploy -f"
+alias ff="sudo chmod -R 777 ~/projects/chaumet/backend/var/log && sudo chmod -R 777 ~/projects/chaumet/backend/generated"
+alias chstart="docker-compose -f ~/projects/chaumet/api/docker-compose.yml -f ~/projects/chaumet/api/docker-compose.nodejs.yml up -d && docker-compose -f ~/projects/chaumet/backend/docker-compose.yml up -d && docker-compose -f ~/projects/chaumet/frontend/docker-compose.yml up -d"
+
+alias ffall="sudo chmod -R 777 ~/projects/chaumet/backend "
+
+alias chstop="docker-compose -f ~/projects/chaumet/api/docker-compose.yml -f ~/projects/chaumet/api/docker-compose.nodejs.yml stop && docker-compose -f ~/projects/chaumet/frontend/docker-compose.yml stop && docker-compose -f ~/projects/chaumet/backend/docker-compose.yml stop "
+alias dstop='docker ps -aq && docker stop $(docker ps -aq)'
+alias drmi='docker rmi $(docker images -q)'
+alias drm='docker rm $(docker images -aq)'
+
+alias mig="cd ~/projects/chaumet/migration/magento/build && docker-compose up"
+alias chapi="docker-compose -f ~/projects/chaumet/api/docker-compose.yml -f ~/projects/chaumet/api/docker-compose.nodejs.yml up"
+alias stopapi="docker-compose -f ~/projects/chaumet/api/docker-compose.yml -f ~/projects/chaumet/api/docker-compose.nodejs.yml down"
+alias chfe="docker-compose -f ~/projects/chaumet/vue-storefront-frontend/docker-compose.yml up "
+alias chbe="docker-compose -f ~/projects/chaumet/backend/docker-compose.yml up "
+alias chbed="docker-compose -f ~/projects/chaumet/backend/docker-compose.yml down "
+alias chapi1="docker-compose -f ~/projects/chaumet/vue-storefront-api/docker-compose.yml -f ~/projects/chaumet/vue-storefront-api/docker-compose.nodejs.yml up"
+
+alias chapi2="docker-compose -f ~/projects/chaumet/vue-storefront-api/docker-compose.nodejs.yml up"
+
+alias ds='docker stop $(docker ps  -aq) '
+alias dr='docker rm $(docker ps  -aq) '
+alias du='docker-compose up --build -d'
+alias dcd='docker-compose down'
+alias dp='docker ps -a'
+
+alias log="sudo rm -rf ~/projects/chaumet/backend/var/log/*"
+alias log1="rm -rf ~/projects/chaumet/migration/magento/build/var/log/*"
+
+
+alias clc="docker-compose -f ~/projects/chaumet/backend/docker-compose.yml exec web php bin/magento cache:clean"
+alias clf="docker-compose -f ~/projects/chaumet/backend/docker-compose.yml exec web php bin/magento cache:flush"
+alias su="docker-compose -f ~/projects/chaumet/backend/docker-compose.yml exec web php bin/magento setup:upgrade"  
+alias su1="docker-compose -f ~/projects/chaumet/backend/docker-compose.yml exec backend_web php bin/magento setup:upgrade"  
+
+alias web="docker-compose -f ~/projects/chaumet/backend/docker-compose.yml exec web bash"
+
+alias clean="clc && su"
+
+alias en="docker exec -it vue-storefront-api_app_1 yarn mage2vs import --store-code=au00_en_gb --excluded-categories=4 --skip-taxrule=true --skip-reviews=true && yarn db rebuild --indexName=vue_storefront_catalog_au00_en_gb"
+alias en1="docker exec -it api_app_1 yarn mage2vs import --store-code=au00_en_gb --excluded-categories=4 --skip-taxrule=true --skip-reviews=true && yarn db rebuild --indexName=vue_storefront_catalog_au00_en_gb"
+
+
+alias cn="docker exec -it vue-storefront-api_app_1 yarn mage2vs import --store-code=cn00_zh_hans_cn --excluded-categories=4 --skip-taxrule=true --skip-reviews=true && yarn db rebuild --indexName=vue_storefront_catalog_cn00_zh_hans_cn"
+alias cn1="docker exec -it api_app_1 yarn mage2vs import --store-code=cn00_zh_hans_cn --excluded-categories=4 --skip-taxrule=true --skip-reviews=true && yarn db rebuild --indexName=vue_storefront_catalog_cn00_zh_hans_cn"
+# yarn mage2vs import --store-code=cn00_zh_hans_cn --excluded-categories=4 --skip-taxrule=true --skip-reviews=true && yarn db rebuild --indexName=vue_storefront_catalog_cn00_zh_hans_cn
+
+# yarn mage2vs import --store-code=mo00_zh_hans_cn --excluded-categories=4 --skip-taxrule=true --skip-reviews=true
+# yarn db rebuild --indexName=vue_storefront_catalog_mo00_zh_hans_cn
+
+# yarn mage2vs import --store-code=sg00_zh_hans_cn --excluded-categories=4 --skip-taxrule=true --skip-reviews=true
+# yarn db rebuild --indexName=vue_storefront_catalog_sg00_zh_hans_cn
+
+# yarn mage2vs import --store-code=tw00_zh_hant_tw --excluded-categories=4 --skip-taxrule=true --skip-reviews=true
+# yarn db rebuild --indexName=vue_storefront_catalog_tw00_zh_hant_tw
+
+# yarn mage2vs import --store-code=qa00_en_gb --excluded-categories=4 --skip-taxrule=true --skip-reviews=true
+# yarn db rebuild --indexName=vue_storefront_catalog_qa00_en_gb
+# alias fr="docker exec -it api_app_1 yarn mage2vs import --store-code=c100_fr_fr --excluded-categories=4 --skip-taxrule=true --skip-reviews=true && yarn db rebuild --indexName=vue_storefront_catalog_c100_fr_fr"
+
+
+alias fr1="docker exec -it vue-storefront-api_app_1 yarn mage2vs import --store-code=c100_fr_fr --excluded-categories=4,2 --skip-taxrule=true --skip-reviews=true && yarn db rebuild --indexName=vue_storefront_catalog_c100_fr_fr"  
+alias fr="docker exec -it api_app_1 yarn mage2vs import --store-code=c100_fr_fr --excluded-categories=4 --skip-taxrule=true --skip-reviews=true && yarn db rebuild --indexName=vue_storefront_catalog_c100_fr_fr"            
+alias pp2="echo "JLu4M3JjwZ" && echo "/home/sites_web/client/Pr3pr0d-m4g3cyl.chaumet.com/latest/app/code/Cgi/Security/Model" && ssh -p JLu4M3JjwZ usr-cgi@13.69.154.156"
+alias pp1="echo "JLu4M3JjwZ" && echo "/home/sites_web/client/Pr3pr0d-m4g3cyl.chaumet.com/latest/var/log" && echo "/home/sites_web/client/Pr3pr0d-m4g3cyl.chaumet.com/latest/app/etc" && ssh usr-cgi@52.169.55.115"
+alias pplog="echo "JLu4M3JjwZ" && scp -r usr-cgi@13.69.154.156:/home/sites_web/client/Pr3pr0d-m4g3cyl.chaumet.com/latest/var/log log_today"
+alias ppvar="echo "JLu4M3JjwZ" && scp -r usr-cgi@13.69.154.156:/home/sites_web/client/Pr3pr0d-m4g3cyl.chaumet.com/latest/var var_today"
+alias cpdump="echo "JLu4M3JjwZ" && scp -r usr-cgi@52.169.55.115:/home/usr-cgi/SQL_Pr3pr0d_m4g3cyl.sql magento.sql"
+
+
+alias t-retry="echo "JLu4M3JjwZ" && ssh usr-cgi@13.69.154.156 "tail -f /home/sites_web/client/Pr3pr0d-m4g3cyl.chaumet.com/latest/var/log/sap_retry.log""
+alias t-sap"echo "JLu4M3JjwZ" && ssh usr-cgi@13.69.154.156 "tail -f/home/sites_web/client/Pr3pr0d-m4g3cyl.chaumet.com/latest/var/log/get_stock_sap.log""
+
+alias mvts="scp /home/atem/Downloads/cybersecurity_tech_solutions  u664829006@217.21.76.1:/home/u664829006/public_html"
+alias cyts="ssh -p 65002 u664829006@217.21.76.1"
+
+alias pp-mig="echo "sdDSh6V0kk3E" && echo "/home/sites_web/client/Pr3pr0d-m4g3cyl.chaumet.com/latest/var/log" && echo "/home/sites_web/client/Pr3pr0d-m4g3cyl.chaumet.com/latest/app/etc" && ssh usr-cgi@51.104.178.90"
+
+alias index="f(){docker exec -it vue-storefront-api_app_1 yarn mage2vs import --store-code=$1 --excluded-categories=4 --skip-taxrule=true --skip-reviews=true && yarn db rebuild --indexName=vue_storefront_catalog_c100_fr_fr};f"  
+
+
+alias fr2="docker exec -it api_app_1 yarn db rebuild --indexName=vue_storefront_catalog_c100_fr_fr"  
+alias db-up="/bin/bash /home/atem/projects/chaumet/migration/magento/docker/images/mysql/8.0/init.d/zzz_after_restore.sh"
+alias db-cp="cp /data/docker/cyl/mysql/data/Pr3pr0d_m4g3cyl.sql /home/atem/projects/chaumet/migration/magento/docker/etc/init.d/mysql "
+
+
+
+# docker exec -it vue-storefront_app_1 yarn db rebuild --indexName=vue_storefront_catalog_c100_fr_fr
+# docker exec -it vue-storefront_app_1 yarn db rebuild --indexName=vue_storefront_catalog_au00_en_gb
+
+alias exd71="sudo mv /etc/php/7.4/cli/conf.d/xdebug.ini.dis /etc/php/7.1/cli/conf.d/xdebug.ini"
+alias exd72="sudo mv /etc/php/7.4/cli/conf.d/xdebug.ini.dis /etc/php/7.2/cli/conf.d/xdebug.ini"
+alias exd73="sudo mv /etc/php/7.4/cli/conf.d/xdebug.ini.dis /etc/php/7.3/cli/conf.d/xdebug.ini"
+alias exd74="sudo mv /etc/php/7.4/cli/conf.d/xdebug.ini.dis /etc/php/7.4/ccli/onf.d/xdebug.ini"
+alias dxd71="sudo mv /etc/php/7.1/cli/conf.d/xdebug.ini /etc/php/7.1/cli/conf.d/xdebug.ini.dis"
+alias dxd72="sudo mv /etc/php/7.4/cli/conf.d/xdebug.ini /etc/php/7.2/cli/conf.d/xdebug.ini.dis"
+alias dxd73="sudo mv /etc/php/7.4/cli/conf.d/xdebug.ini /etc/php/7.3/cli/conf.d/xdebug.ini.dis"
+alias dxd74="sudo mv /etc/php/7.4/cli/conf.d/xdebug.ini /etc/php/7.4/cli/conf.d/xdebug.ini.dis"
+
+
+
+
+alias backend="docker exec -it vue-storefront-api_web_1 bash"
+alias frontend="docker exec -it  frontend_app_1 sh"
+alias api="docker exec -it vue-storefront-api_app_1 sh"
+alias openbe="phpstorm ~/projects/chaumet/backend"
+alias openfe="phpstorm ~/projects/chaumet/frontend"
+alias openapi="phpstorm ~/projects/chaumet/api"
+
+alias sail='bash vendor/bin/sail'
+
+# SERVERS#
+# echo "Finallymade2020*" && 
+alias atem="echo "Finallycoding2020" && ssh atemkeng.com@accessproxy.webpod11-cph3.one.com"  
+alias atmkng="echo "Finallycoding2020" && ssh atmkng.de@ssh.atmkng.de"
+alias hosting="ssh pixelate@213.160.73.220"
+
+alias kstart="docker-compose -f /home/atem/sites/kafka/docker-compose.yml up -d"
+alias kstop="docker-compose -f /home/atem/sites/kafka/docker-compose.yml stop && docker system prune -a --volumes --filter 'label=io.confluent.docker'"
+alias mage="docker exec -it 'vue-storefront-api_web_1' bash"
+alias mage1="docker exec -it 'backend_web_1' bash"
+alias gen-test="docker exec -it 'vue-storefront_app_1' php bin/magento dev:tests:generate-unit"
+alias mageql="docker exec -it 'backend_mysql_1' bash"
+alias s:u1="docker exec -it 'vue-storefront-api_web_1' bin/magento setup:upgrade"
+alias d:c1="docker exec -it 'vue-storefront-api_web_1' bin/magento setup:di:compile"
+alias cc1="s:u1 && d:c1"
+
+alias s:u="docker exec -it 'backend_web_1' bin/magento setup:upgrade && ffall" 
+alias d:c="docker exec -it 'backend_web_1' bin/magento setup:di:compile"
+alias cc="s:u && d:c"
+
+alias cbin="docker exec -it mage_app_1 bin/magento "
+alias cbin1="docker exec -it mage_app_1 bin/magento "
+alias cbin2="docker exec -it vue-storefront_mage_app_1 bin/magento "
+
+alias cb="cbin setup:upgrade && cbin setup:di:compile"
+alias cb1="cbin1 setup:upgrade && cbin1 setup:di:compile"
+alias cb2="cbin2 setup:upgrade && cbin2 setup:di:compile"
+alias cha2="docker exec -it vue-storefront_mage_app_1"
+
+
+alias cha="docker exec -it mage_app_1 "
+alias cha1="docker exec -it magento_mage_app_1 "
+alias chab="docker exec -it mage_app_1 bash"
+
+alias cts="echo "kj5IMkm7stSzZpl2" && ssh w0287@proweaver.site"
+alias test='f() { ~/projects/chaumet/backend/vendor/bin/phpunit --colors  -v ~/projects/chaumet/backend/app/code/Cgi/$1/Test/Unit/$2 };f'
+
+
+alias lbnlog2="echo "sdDSh6V0kk3E" && scp -r -J usr-cgi@51.104.178.90 usr-cgi@azchamagentoppd01000002:/var/www/html/Pr3pr0d-m4g3cyl2.chaumet.com/www/latest/var/log/exception.log magento_exception.log"
+alias lbnlogapi="echo "sdDSh6V0kk3E" && scp -r -J usr-cgi@51.104.178.90 usr-cgi@azchamagentoppd01000002:/var/www/html/pp-crownyourlove2.chaumet.com/.pm2/logs/server-error-4.log  pm2_server-error.log"
+alias lbnlog="echo "sdDSh6V0kk3E" && scp -r -J usr-cgi@51.104.178.90 usr-cgi@azchacronppd01:/var/www/html/Pr3pr0d-m4g3cyl2.chaumet.com/www/latest/var/log lbn_log_today"
+alias lbn="echo "sdDSh6V0kk3E" && echo "/var/www/html/Pr3pr0d-m4g3cyl2.chaumet.com/www/latest" && echo "/var/www/html/pp-crownyourlove2.chaumet.com/node/cyl-api" && ssh -t -J usr-cgi@51.104.178.90 usr-cgi@azchamagentoppd01000003"
+alias lbn-cron="echo "sdDSh6V0kk3E" && echo "/var/www/html/Pr3pr0d-m4g3cyl2.chaumet.com/www/latest" && echo "/var/www/html/pp-crownyourlove2.chaumet.com/node/cyl-api" && ssh -t -J usr-cgi@51.104.178.90 usr-cgi@azchacronppd01"
+
+alias el_dump="echo "sdDSh6V0kk3E" && scp -r -J usr-cgi@51.104.178.90 usr-cgi@azchamagentoppd01000003:/var/www/html/pp-crownyourlove2.chaumet.com/node/el7_dump el7_dump_server"
+
+alias tlbn="echo "sdDSh6V0kk3E" && echo 'tail -f /var/www/html/Pr3pr0d-m4g3cyl2.chaumet.com/www/latest/var/log/executeLogin.log' && ssh -t -J usr-cgi@51.104.178.90 usr-cgi@azchacronppd01"
+alias mig-db="/bin/bash /home/atem/projects/chaumet/migration/magento/docker/images/mysql/8.0/init.d/zzz_after_restore.sh"
+
+alias "zsh_fix"="chmod +x /home/atem/scripts/zsch_fix.sh 2>&1 "
+
+alias "tlog"="tail -f /home/atem/projects/chaumet/migration/magento/build/var/log/webapi_rest/$1"
+
+alias "tlogin"="tail -f /home/atem/projects/chaumet/migration/magento/build/var/log/executeLogin.log"
+alias "tokta"="tail -f /home/atem/projects/chaumet/migration/magento/build/var/log/tokenService.log"
+alias "tex"="tail -f /home/atem/projects/chaumet/migration/magento/build/var/log/exception.log"
+
+alias api="docker exec -it vue-storefront-api_app_1 sh"
+alias up="mig --build -d && chapi1 --build -d && chfe --build -d"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# source /mnt/c/Users/Atem/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /home/atem/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /home/atem/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
  export PATH=$HOME/.composer/vendor/bin:$PATH
-# export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+ export PATH="$HOME/.symfony/bin:$PATH"
 
-# antigen bundle zsh-users/zsh-completions
 # antigen theme denysdovhan/spaceship-prompt
 # antibody bundle denysdovhan/spaceship-prompteval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-#eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-# typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-# Add Visual Studio Code (code)
-
-export PATH="/Users/b.atemkeng/docker-scripts/bin:$PATH"
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
- 
-
-
-
-alias dif-con="diff $TMPDIR/.zshrc.ATEj9Db4ln ~/.zshrc"
-alias pk="p10k configure"
-alias path="code /etc/paths"
-alias dbstart="brew services start mysql || mysql.server stop"
-alias dbstop="brew services stop mysql || mysql.server stop"
-alias dbstat="brew services status mysql || mysql.server status"
-alias setup-all="fsk env all setup"
-alias stop-all="fsk docker config stop && fsk config stop && fsk all stop" 
-alias start-all="fsk up all local && fsk status all local "
-alias info-all="fsk docker all info "
-alias allports="sudo lsof -PiTCP -sTCP:LISTEN"
-alias pcon="p10k configure"
-
-
-
-#  alias apstart="sudo service apache2 start"
-#  alias apstop="sudo service apache2 stop"
-#  alias apstat="sudo service apache2 status"
-  alias pj="cd ~/projects && ls -all"
-  alias site="cd ~/sites && ls -all"
-
-  alias gr="sudo lsof  | grep "
- alias p80="sudo lsof -i -P -n | grep LISTEN"
-#  alias phpstart="sudo service php7.4-fpm start"
-#  alias phpstat="sudo service php7.4-fpm status"
-#  alias nginxstart="sudo nginx -s reopen sudo brew services stop nginx "
-  alias nstart="brew services start nginx "
-  alias nstop="sudo brew services stop nginx "
-  alias nrestart="sudo brew services restart nginx " 
-  alias nstat="sudo brew services status nginx " 
-  alias nginxreload="sudo nginx -s reload"
-# alias nginxstat="sudo service nginx status"
-  alias nginxstop="sudo nginx -s stop "
-  alias zip="sudo tar xvf"
-  alias dex=". /Users/b.atemkeng/docker-scripts/bin/dex.sh"
-  alias dsail=". /Users/b.atemkeng/docker-scripts/bin/dsail.sh"
-  alias docker-clear="docker stop $(docker ps -aq) || docker rm $(docker ps -aq) || docker rmi $(docker images -q)"
-  alias cp-env="cp ~/projects/.env ~/projects/fashionette.tool/docker/.env"
-  alias open-env="pstorm ~/projects/.env"
-  alias dev="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ chrome 'http://api.local.fashionette.de/risk/doc' --ignore-certificate-errors &> /dev/null & "
-  alias doc="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ chrome 'http://r3-api-develop.fashionette.de/risk/doc'"
-  alias gitcon="git config --global --list"
-  alias wkflow="pstorm ~/projects/git_work_flow.md"
-  alias env="cp .env.example .env"
-  alias key="php artisan key:generate"
-  alias ci="composer install"
-
-  alias test="composer run-script phpcs && composer run-script phpmd && composer run-script test"
-  alias tested="./vendor/phpunit/phpunit/phpunit tests/Unit/Diva/Order/Transformers/Payments/RatePayTest.php --debug  --colors=always"
-  # alias test="composer run-script phpcs && composer run-script phpmd && composer run-script test && composer run-script phpmetrics || composer run-script phpmetrics-report"
-
-  alias gb="clear && git branch && echo "Current_branch::" && git branch --show-current "
-
-  #alias test='curl -X GET "http://api.local.fashionette.de/customer/customer/57d3505e-bf3d-418c-a461-c31ab1e90f1d/addresses" -H "accept: application/json"'
-
-
-#  docker run -it -v $(readlink -f /var/run/mysqld/mysqld.sock):/tmp/mysql.sock  fashionette_mysql_1 
-
-  # alias mkbase=". /Users/b.atemkeng/docker-scripts/bin/mkbasegit.sh"
-  alias pull="git config pull.rebase true"
-  alias dbtest="mysql -uhomestead -psecret --port=33006"
-
-# http://r3-api-develop.fashionette.de
-# curl -X POST "http://r3-api-develop.fashionette.de/customer/customer/form-submission" -H "accept: */*" -H "Content-Type: application/json" -d "{\"cms_page_identifier\":\"example_page_identifier\",\"attributes\":{\"example_field_name\":\"example_value\"}}"
-
-
-# if type brew &>/dev/null; then
-#  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-#
-#  autoload -Uz compinit
-#  compinit
-# fi
-
-# autoload -U compinit && compinit
-
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quietexport PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export PATH="$PATH:$HOME/.composer/vendor/bin"
-export PATH="/Users/b.atemkeng/.composer/vendor/bin:$PATH"
-
-
-export PATH=$PATH:"/usr/local/Cellar/git"
-# Add Visual Studio Code (code)
-# export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/usr/local/opt/libxml2/bin:/usr/local/sbin:/Users/b.atemkeng/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go:/usr/local/go/bin"
-# export PATH="$PATH:$HOME/.composer/vendor/bin"
-
-
-# bit bucket stories and substories
-  alias story="git checkout FASVIER-19722-story-it--remove-magento-code-from-order-api"
-  alias base="git checkout FASVIER-20913-cleanup-order-api-from-magneto-integration"
-  alias pull="git pull"
-  alias gbase="base && pull"
-  alias chb="git checkout -b FASVIER-20757-remove-shipping-toggle"
-  alias glog="git log --graph --color"
-
-
-
-
-alias atem="ssh atemkeng.com@accessproxy.webpod11-cph3.one.com"
-alias atmkng="ssh atmkng.de@ssh.atmkng.de"
-
-
-# Docker commannds
-alias sail="bash vendor/bin/sail"
- 
-alias dkill="docker kill $(docker ps -q)"
-# remove all containers:
-alias drm="docker rm $(docker ps -a -q)"
-# remove all docker images:
-alias drmi="docker rmi $(docker images -a -q)"
-alias dkall="dkill && drm && drmi"
-alias dstop="docker stop $(docker ps -a -q)"
-
-
-
-alias hosting="ssh pixelate@213.160.73.220"
-
-
-# git remote add deploy ssh://<your-name>@<your-ip>/srv/git/<your-project>.git/
-# git remote add deploy ssh://atemkeng.com@accessproxy.webpod11-cph3.one.com/var/git/pixelate.git/
-
-
-
-
-
-dryrun() {
- git mergetest $1
-}
-
-      
-
+source /home/atem/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
+export KAFKA_HOME=/home/atem/kafka_2.13-2.8.0/kafka
+export KAFKA_HOME=/opt/kafka_2.13-2.8.0
+export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
+export PATH=$PATH:/usr/lib/jvm/java-1.8-openjdk/bin
+export PATH=$JAVA_HOME/bin:$KAFKA_HOME/bin:$PATH
+PATH=$PATH:$KAFKA_HOME/bin
+
+
+# open port 19000
+# sudo iptables -I INPUT -p tcp -m tcp --dport 19000 -j ACCEPT
 
 
 
+###  Revert After MErge to Remortte branch
+# git rebase -i HEAD~1
+# drop 
+# git push -f
+
+# update db products script
+# Update catalog_product_entity_int set value = 2 where Attribute_id = 97 and value = 1 and entity_id in (SELECT entity_id FROM `catalog_product_entity_varchar` where attribute_id = 151 and value in (SELECT CAST(cyl_stone_gia as CHAR(50)) FROM `sales_order` where state not in ('processing')));
+# git push origin --delete branch_name
+
+# 00G_i3s75WNQjghEB_Ocx88eEimppVQmob5xpHt7wR
+
+# tail -f /var/log/apache/pp-crownyourlove2.chaumet.com/*.log   | grep -i "error"   // Flush cashe 
+
+# sudo -u Pr3pr0d-m4g3cyl2.chaumet.com php bin/magento indexer:reindex
+
+# tail -f /var/log/nginx/*.log
 
 
+# /var/www/html/pp-crownyourlove2.chaumet.com/.pm2/logs/server-error-4.log 
 
+# sudo -u pp-crownyourlove2.chaumet.com rsync -avP /var/www/html/pp-crownyourlove2.chaumet.com/node/build-cyl-api/build-103/ /var/www/html/pp-crownyourlove2.chaumet.com/node/cyl-api/' (self time 27min 13s)
 
-# mkdir -vp ~/.config/atem/
-#cat >  ~/.config/atem/atem-fin.json << EOF
-# {
-#    "api-key": "D4u39tsumXCyeR8F7QCL0Uuisia9FNTW8GqkfPAgFk5K1HxG1s16Cf9atHBFaUYv",
-#    "api-secret": "hu6l9JtS6M4NtJ2L0w28Pd0Z2tlwfsxZnatRTMfz0as8M5AvXy8gReVhQP70ExRT",
-#    "comment":"bintrack",
-#}
-#EOF
-#
-#cat ~/.config/atem/atem-fin.json
-
-# ssh u58849871-amahoconsu@home330932700.1and1-data.host
-
-# Jg?0E9Prx2^&
-
-
-# How to fix it
-# Generate a Personal Access Token. (Detailed guide on Creating a personal access token for the command line.)
-# Copy the Personal Access Token.
-# Re-attempt the command you were trying and use Personal Access Token in the place of your password.
-# Related question: https://stackoverflow.com/a/21374369/101662
-
-# ------ GIT MERGETEST FOR DRYRUN AND MERGECONFLICT --------
-# then in case you want to test merge some_branch into develop 
-# switch to develop 
-#	run dryrun some_branch
-
-alias apiato="composer create-project apiato/apiato "
-
-
-alias deepo="docker run -it -p 8888:8888 --ipc=host ufoym/deepo:all-jupyter jupyter notebook --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token= --notebook-dir='/root'"
-alias deepo-v="-v ~/sites/deepo/:/root —-name jupyter_nb"
-alias ae="docker run -ti --rm -v `pwd`:/essentia mtgupf/essentia essentia_streaming_extractor_music "
-
-
-alias risk="cd /Users/b.atemkeng/projects/code/api/api.risk && pstorm .  && test"
-alias order="cd /Users/b.atemkeng/projects/code/api/api.order && pstorm .  && test"
-alias checkout="cd /Users/b.atemkeng/projects/code/api/api.checkout && pstorm .  && test"
-alias analytics="cd /Users/b.atemkeng/projects/code/api/api.analytics && pstorm .  && test"
-alias cart="cd /Users/b.atemkeng/projects/code/api/api.cart && pstorm .  && test"
-alias catalog="cd /Users/b.atemkeng/projects/code/api/api.catalog && pstorm .  && test"
-alias newsletter="cd /Users/b.atemkeng/projects/code/api/api.newsletter && pstorm .  && test"
-alias payment="cd /Users/b.atemkeng/projects/code/api/api.payment && pstorm . && test"
-alias reviews="cd /Users/b.atemkeng/projects/code/api/api.reviews && pstorm . && test"
-alias stock="cd /Users/b.atemkeng/projects/code/api/api.stock && pstorm . && test"
-alias voucher="cd /Users/b.atemkeng/projects/code/api/api.voucher && pstorm . && test"
-alias customer="cd /Users/b.atemkeng/projects/code/api/api.customer && pstorm . && fsk unit customer"
-alias frontend="cd /Users/b.atemkeng/projects/code/frontend.fashionette && pstorm . && fsk up frontend --keep && fsk unit test frontend"
-alias tool="cd /Users/b.atemkeng/projects/fashionette.tool && pstorm . "
-alias status="fsk status all docker"
-
-
-alias song="cd /Users/b.atemkeng/sites/next-song && pstorm . "
-alias pixelate="cd /Users/b.atemkeng/sites/pixelate && pstorm .  && sail up"
-alias admin="cd /Users/b.atemkeng/sites/admin && pstorm .  && sail up"
-alias user="cd /Users/b.atemkeng/sites/user && pstorm .  && sail up"
-alias pay="cd /Users/b.atemkeng/sites/payment && pstorm .  && sail up"
-alias post="cd /Users/b.atemkeng/sites/post && pstorm .  && sail up"
-alias design="cd /Users/b.atemkeng/sites/design && pstorm .  && sail up"
-alias log="rm -rf  storage/logs "
-
-alias open-post="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ chrome 'http://localhost:8055/api/v1/docs'"
-alias open-design="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ chrome 'http://localhost:8099/api/v1/docs'"
-alias open-admin="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ chrome 'http://localhost:8022/api/v1/docs'"
-alias open-user="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ chrome 'http://localhost:8011/api/v1/docs'"
-# ssh  git@bitbucket.org   // SSH into bitbucket.
+#  azchamagentoppd01000002,192.168.50.41 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJcXUAHslFwbxMSls2qGDnbqMjcXSHZ+xjLabF7N8SF4wh9cTpMV+oXl7VjJgmJmIaStbCHitBrOaTcQlzdtad8=
